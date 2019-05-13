@@ -10,26 +10,30 @@
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
  *			in input file 'input.txt'
  *
- *	'Application.java'
+ *	'RoundHandler.java'
  *  File Description:
- *		The main file for the program. Takes input, runs encryption, outputs results
- *
+ *		description here
  */
+package aes;
 
-package launch;
+public class RoundHandler {
 
-import aes.AESHandler;
-import io.FileHandler;
-
-public class Application {
-	public static void main(String[] args) {
-		FileHandler ih = new FileHandler();  //run ih.init() which Handles prompt, sets text/key
-		
-		AESHandler aeshandler = new AESHandler(ih.getText(),ih.getKey());
-		
-		//run the encryption/decryption
-		//output results
-		
-		System.out.println("Exiting program.");
+	public RoundHandler() {}
+	
+	public byte[][] SubBytes(byte[][] input) {
+		byte[][] output = input;
+		return output;
+	}
+	public byte[][] ShiftRows(byte[][] input) {
+		byte[][] output = input;
+		return output;
+	}
+	public byte[][] MixColumns(byte[][] input) {
+		byte[][] output = input;
+		return output;
+	}
+	public byte[][] AddRoundKey(byte[][] input) {
+		byte[][] output = input;
+		return output;
 	}
 }

@@ -10,7 +10,7 @@
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
  *			in input file 'input.txt'
  *
- *	FileHandler.java
+ *	'FileHandler.java'
  *  File Description:
  *		Handles the logic related to file input
  *		Init() handles user prompt and sets its variables
