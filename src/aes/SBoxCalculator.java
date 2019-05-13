@@ -20,7 +20,7 @@ package aes;
 
 public class SBoxCalculator {
 	
-	int[][] boxTable = { //hex values can be stored as ints
+	int[][] boxTable = { //hex values can be stored as ints, auto converts to the decimal equivalent
 			{0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76},
 	        {0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0},
 	        {0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15},
@@ -59,10 +59,9 @@ public class SBoxCalculator {
 	};
 	
 	public int sBox(int input) {
-		//String hex = Integer.toHexString(input); //convert int to hex string
 		String hex = String.format("%2s", Integer.toHexString(input)).replace(' ','0');
-		int hex0 = Integer.parseInt(Character.toString(hex.charAt(0))); //get first digit of hex
-		int hex1 = Integer.parseInt(Character.toString(hex.charAt(1))); //second digit of hex
+		int hex0 = Integer.parseInt(Character.toString(hex.charAt(0)),16); //get first digit of hex
+		int hex1 = Integer.parseInt(Character.toString(hex.charAt(1)),16); //second digit of hex
 		return boxTable[hex0][hex1];
 	}
 

@@ -31,7 +31,27 @@ public class AESHandler {
 		intTable = binaryStringTointTable(input);
 		
 		//DEBUG
-		System.out.println("input: "+input+"\nConverted to int then back to binary: "+intTableToBinaryString(intTable));
+		/*
+		System.out.println("input: "+input+"\n");
+		RoundHandler rh = new RoundHandler();
+		int[][] boxTable = rh.SubBytes(intTable);
+		
+		for (int i = 0; i < 4; i++) {
+			String line = "";
+			for (int j = 0; j < 4; j++) {
+				line += Integer.toHexString(intTable[i][j]) + " ";
+			}
+			System.out.println(line);
+		}
+		System.out.println("\n-------------------\n");
+		for (int i = 0; i < 4; i++) {
+			String line = "";
+			for (int j = 0; j < 4; j++) {
+				line += Integer.toHexString(boxTable[i][j]) + " ";
+			}
+			System.out.println(line);
+		}*/
+		
 	}
 	
 	public int[][] binaryStringTointTable(String input) {

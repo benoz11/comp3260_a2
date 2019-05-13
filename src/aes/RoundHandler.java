@@ -16,6 +16,8 @@
  */
 package aes;
 
+import java.util.Arrays;
+
 public class RoundHandler {
 	SBoxCalculator sb;
 
@@ -23,26 +25,26 @@ public class RoundHandler {
 		sb = new SBoxCalculator();
 	}
 	
-	
 	public int[][] SubBytes(int[][] input) {
-		int[][] output = input;
+		int[][] output = new int[4][4];
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				output[i][j] = sb.sBox(output[i][j]);
+				output[i][j] = sb.sBox(input[i][j]);
 			}
 		}
 		return output;
 	}
+	
 	public int[][] ShiftRows(int[][] input) {
-		int[][] output = input;
+		int[][] output = new int[4][4];
 		return output;
 	}
 	public int[][] MixColumns(int[][] input) {
-		int[][] output = input;
+		int[][] output = new int[4][4];
 		return output;
 	}
 	public int[][] AddRoundKey(int[][] input) {
-		int[][] output = input;
+		int[][] output = new int[4][4];
 		return output;
 	}
 }
