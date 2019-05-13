@@ -11,67 +11,58 @@
  *			in input file 'input.txt'
  *
  *	'AESHandler.java'
- *  File Description:
+ *	File Description:
  *		Handles the AES Encryption/Decryption
  *		AES0 AES1 ... AES4 are as described in the assignment specifications
  *		
  *	Code References:
- *		ref 1: String of bits to byte - src: https://stackoverflow.com/a/12310176/5536102
- *		ref 2: Byte to string of bits - src: https://stackoverflow.com/a/12310078/5536102
+ *		ref 1: Convert to string of bits - src: https://stackoverflow.com/a/12310078/5536102
  */
 package aes;
 
 public class AESHandler {
 	String input;
 	String key;
-	byte[][] byteTable;
+	int[][] intTable;
 	
 	public AESHandler(String input, String key) {
 		this.input = input;
-		this.key = key;
-		byteTable = binaryStringToByteTable(input);
+		this.key=key;
+		intTable = binaryStringTointTable(input);
 		
-		//DEBUG - testing conversion methods
-		//System.out.println("original input value: "+input);
-		//System.out.println("value after converting to byteTable and then back to string: "+byteTableToBinaryString(byteTable));
+		//DEBUG
+		System.out.println("input: "+input+"\nConverted to int then back to binary: "+intTableToBinaryString(intTable));
 	}
 	
-	/*
-	 * Conversion functions
-	 */
-	public byte[][] binaryStringToByteTable(String input) {
+	public int[][] binaryStringTointTable(String input) {
 		/*
-		 * Assumes string is 128 bits of 0's and 1's, no spaces
-		 * Splits it into 16 x 8bit chunks
-		 * Returns a 2d Byte array in a 4x4 table format representing the string
-		 * NOTE: AES table goes top to bottom - left to right on insertion
-		 * 		eg: first byte is at 0,0  second byte is at 1,0
+		 * Assumes a 128bit string of 0's and 1's, no spaces
+		 * splits into 8 bit chunks stored as hex values in an integer
+		 * returns a 2d int array of hex values representing each int from the input
+		 * NOTE: AES table goes top to bottom then left to right
+		 * 		eg: first int is at 0,0    second int is at 1,0
 		 */
-		byte[][] byteTable = new byte[4][4];
+		
+		int[][] intTable = new int[4][4];
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
 				String part = input.substring(i*32 + j*8, i*32 + j*8 + 8); //separate into 8 bit chunks
-				byteTable[j][i] = (byte)(int)Integer.valueOf(part,2); //Get string as Integer base 2, convert to int, convert to byte (from ref 1)
+				intTable[j][i] = Integer.parseInt(part,2); //get string as int
 			}
 		}
-		return byteTable;
+		return intTable;
 	}
 	
-	public String byteTableToBinaryString(byte[][] byteTable) {
-		/*
-		 * Assumes a 4x4 2d byte array
-		 * Outputs a 128bit string of 0's and 1's representing the 16 bytes given in the array
-		 * NOTE: AES table goes top to bottom - left to right on insertion
-		 *		eg: first byte is at 0,0  second byte is at 1,0
-		 */
+	public String intTableToBinaryString(int[][] input) {
 		String output = "";
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j < 4; j++) {
-				output += String.format("%8s", Integer.toBinaryString(byteTable[j][i] & 0xFF)).replace(' ','0'); //byte to binary string (from ref 2)
+				output += String.format("%8s", Integer.toBinaryString(input[j][i] & 0xFF)).replace(' ','0'); //convert to binary string (from ref 1)
 			}
 		}
 		return output;
 	}
+	
 
 	/*
 	 * AES
@@ -82,7 +73,7 @@ public class AESHandler {
 		/*
 		 * The standard AES, 9 rounds of sub shift mix round then a final round of sub shift round
 		 */
-		byte[][] output = byteTable;
+		int[][] output = intTable;
 		RoundHandler rh = new RoundHandler();
 		
 		//initial round
@@ -102,31 +93,30 @@ public class AESHandler {
 		output = rh.AddRoundKey(output);
 		
 		//return as string
-		return byteTableToBinaryString(output);
+		return intTableToBinaryString(output);
 	}
 	public String AES1() {
-		byte[][] output = byteTable;
+		int[][] output = intTable;
 		
 		//return as string
-		return byteTableToBinaryString(output);
+		return intTableToBinaryString(output);
 	}
 	public String AES2() {
-		byte[][] output = byteTable;
+		int[][] output = intTable;
 		
 		//return as string
-		return byteTableToBinaryString(output);
+		return intTableToBinaryString(output);
 	}
 	public String AES3() {
-		byte[][] output = byteTable;
+		int[][] output = intTable;
 		
 		//return as string
-		return byteTableToBinaryString(output);
+		return intTableToBinaryString(output);
 	}
 	public String AES4() {
-		byte[][] output = byteTable;
+		int[][] output = intTable;
 		
 		//return as string
-		return byteTableToBinaryString(output);
+		return intTableToBinaryString(output);
 	}
-	
 }

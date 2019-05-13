@@ -12,28 +12,37 @@
  *
  *	'RoundHandler.java'
  *  File Description:
- *		description here
+ *		Contains methods to transform a 2d int array in the various ways used in AES
  */
 package aes;
 
 public class RoundHandler {
+	SBoxCalculator sb;
 
-	public RoundHandler() {}
+	public RoundHandler() {
+		sb = new SBoxCalculator();
+	}
 	
-	public byte[][] SubBytes(byte[][] input) {
-		byte[][] output = input;
+	
+	public int[][] SubBytes(int[][] input) {
+		int[][] output = input;
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < 4; j++) {
+				output[i][j] = sb.sBox(output[i][j]);
+			}
+		}
 		return output;
 	}
-	public byte[][] ShiftRows(byte[][] input) {
-		byte[][] output = input;
+	public int[][] ShiftRows(int[][] input) {
+		int[][] output = input;
 		return output;
 	}
-	public byte[][] MixColumns(byte[][] input) {
-		byte[][] output = input;
+	public int[][] MixColumns(int[][] input) {
+		int[][] output = input;
 		return output;
 	}
-	public byte[][] AddRoundKey(byte[][] input) {
-		byte[][] output = input;
+	public int[][] AddRoundKey(int[][] input) {
+		int[][] output = input;
 		return output;
 	}
 }
