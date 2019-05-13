@@ -30,28 +30,7 @@ public class AESHandler {
 		this.key=key;
 		intTable = binaryStringTointTable(input);
 		
-		//DEBUG
-		/*
-		System.out.println("input: "+input+"\n");
-		RoundHandler rh = new RoundHandler();
-		int[][] boxTable = rh.SubBytes(intTable);
-		
-		for (int i = 0; i < 4; i++) {
-			String line = "";
-			for (int j = 0; j < 4; j++) {
-				line += Integer.toHexString(intTable[i][j]) + " ";
-			}
-			System.out.println(line);
-		}
-		System.out.println("\n-------------------\n");
-		for (int i = 0; i < 4; i++) {
-			String line = "";
-			for (int j = 0; j < 4; j++) {
-				line += Integer.toHexString(boxTable[i][j]) + " ";
-			}
-			System.out.println(line);
-		}*/ 
-		
+		debugTest();//DEBUG
 	}
 	
 	public int[][] binaryStringTointTable(String input) {
@@ -138,5 +117,27 @@ public class AESHandler {
 		
 		//return as string
 		return intTableToBinaryString(output);
+	}
+	
+	public void debugTest() {
+		System.out.println("input: "+input+"\n");
+		RoundHandler rh = new RoundHandler();
+		int[][] boxTable = rh.MixColumns(intTable);
+		
+		for (int i = 0; i < 4; i++) {
+			String line = "";
+			for (int j = 0; j < 4; j++) {
+				line += Integer.toHexString(intTable[i][j]) + " ";
+			}
+			System.out.println(line);
+		}
+		System.out.println("\n-------------------\n");
+		for (int i = 0; i < 4; i++) {
+			String line = "";
+			for (int j = 0; j < 4; j++) {
+				line += Integer.toHexString(boxTable[i][j]) + " ";
+			}
+			System.out.println(line);
+		}
 	}
 }
