@@ -12,7 +12,7 @@
  *
  *	'RoundHandler.java'
  *  File Description:
- *		Contains methods to transform a 2d int array in the various ways used in AES
+ *		Contains methods to transform a 2d int array in the various ways used in AES 
  */
 package aes;
 

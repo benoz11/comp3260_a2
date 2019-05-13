@@ -14,7 +14,7 @@
  *  File Description:
  *		Handles the logic related to file input
  *		Init() handles user prompt and sets its variables
- *		Simple call get methods to get the results of the file handling
+ *		Simple call get methods to get the results of the file handling 
  */
 package io;
 

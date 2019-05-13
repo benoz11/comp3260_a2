@@ -12,7 +12,7 @@
  *
  *	'Application.java'
  *  File Description:
- *		The main file for the program. Takes input, runs encryption, outputs results
+ *		The main file for the program. Takes input, runs encryption, outputs results 
  *
  */
 

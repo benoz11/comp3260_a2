@@ -14,7 +14,7 @@
  *  File Description:
  *		An int is passed into this object and converted to 2 digit hex
  *		The first hex digit selects the column and the second selects the row to retrieve a new 2 digit hex
- *		The table is given as the standard AES S-box
+ *		The table is given as the standard AES S-box 
  */
 package aes;
 
