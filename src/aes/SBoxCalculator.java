@@ -8,7 +8,6 @@
  *     	Implementation of AES128 Encryption and Decryption, including analysis of the 'Avalanche effect'
  *  		caused by making small changes to the input or omitting parts of the AES process
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
- *			in input file 'input.txt'
  *
  *	'SBoxCalculator.java'
  *  File Description:

@@ -8,7 +8,6 @@
  *     	Implementation of AES128 Encryption and Decryption, including analysis of the 'Avalanche effect'
  *  		caused by making small changes to the input or omitting parts of the AES process
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
- *			in input file 'input.txt'
  *
  *	'Application.java'
  *  File Description:
@@ -34,8 +33,8 @@ public class Application {
 		System.out.println("Anything else - Exit");
 		
 		String input = keypress.next();
-		if (input.equals("1")) {Encrypter enc = new Encrypter();}
-		else if (input.equals("2")) {Decrypter dec = new Decrypter();}
+		if (input.equals("1")) {Encrypter enc = new Encrypter();} //offload to encrypter
+		else if (input.equals("2")) {Decrypter dec = new Decrypter();} //offload to decrypter
 		System.out.println("\nExiting program...");
 	}
 }

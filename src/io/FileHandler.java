@@ -8,11 +8,10 @@
  *     	Implementation of AES128 Encryption and Decryption, including analysis of the 'Avalanche effect'
  *  		caused by making small changes to the input or omitting parts of the AES process
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
- *			in input file 'input.txt'
  *
  *	'FileHandler.java'
  *  File Description:
- *		Handles the logic related to file input
+ *		Handles the logic related to file input/output
  *		Init() handles user prompt and sets its variables
  *		Simple call get methods to get the results of the file handling 
  */

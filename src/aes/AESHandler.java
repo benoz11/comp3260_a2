@@ -8,12 +8,12 @@
  *     	Implementation of AES128 Encryption and Decryption, including analysis of the 'Avalanche effect'
  *  		caused by making small changes to the input or omitting parts of the AES process
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
- *			in input file 'input.txt'
  *
  *	'AESHandler.java'
  *	File Description:
  *		Handles the AES Encryption/Decryption
  *		AES0 AES1 ... AES4 are as described in the assignment specifications
+ *		Decryption is inverted AES0
  *		
  *	Code References:
  *		ref 1: Convert to string of bits - src: https://stackoverflow.com/a/12310078/5536102
@@ -36,11 +36,8 @@ public class AESHandler {
 		converter = new Converter();
 		intTable = converter.binaryStringToIntTable(input);
 		keyTable = converter.binaryStringToIntTable(key);
-		this.rh = rh;
-		converter = new Converter();
-		//rh = new RoundHandler(keyTable);
-		
-		//debugTest();//DEBUG
+		this.rh = rh; //rh is passed through by the class creating an AESHandler
+		converter = new Converter(); //used to convert between
 	}
 
 	/*

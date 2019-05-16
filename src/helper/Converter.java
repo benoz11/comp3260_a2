@@ -8,11 +8,13 @@
  *     	Implementation of AES128 Encryption and Decryption, including analysis of the 'Avalanche effect'
  *  		caused by making small changes to the input or omitting parts of the AES process
  *     	Input is a 2 lined text file of the plaintext/ciphertext and the key, both as 128 bit binary
- *			in input file 'input.txt'
  *
  *	'Converter.java'
  *  File Description:
- *		description here
+ *		Convert between a 2d integer table and a 128bit binary string (16 bytes)
+ *		16 bytes are put into a 4x4 table
+ *		This currently goes top down then left to right, so the second byte in the text file is placed at column 0 row 1
+ *			This is how it was shown in Lecture 7 slide 30 
  */
 package helper;
 
