@@ -12,7 +12,8 @@
  *
  *	'StringAnalyser.java'
  *  File Description:
- *		description here
+ *		Simple class holding a method to compare binary strings of equal length
+ *		It is used to compare the avalanche effect caused by subtle changes in P and K
  */
 package analysis;
 

@@ -18,8 +18,12 @@
  */
 package io;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -40,8 +44,8 @@ public class FileHandler {
 		 */
 		boolean success = false;
 		while (!success) { //loop until we are given a valid file
-			//inputFile = new File(inputFilename()); //method prompts for filename input from user
-			try (Scanner fileScanner = new Scanner(new File(inputFilename()))) { //throws FileNotFoundException if file cannot be found
+			System.out.println("Please enter the input file name: ");
+			try (Scanner fileScanner = new Scanner(new File(getFilename()))) { //throws FileNotFoundException if file cannot be found
 				text = fileScanner.nextLine(); //set variables to file line contents, throws NoSuchElementException if file doesn't have nextLine()
 				key = fileScanner.nextLine();
 				success = true;
@@ -60,17 +64,33 @@ public class FileHandler {
 		System.out.println();
 	}
 
-	public String inputFilename() {
+	@SuppressWarnings("resource") //System.in scanner doesn't need to be closed
+	public String getFilename() {
 		/*
 		 * Get a string input from user, returns the string
 		 * Does not close the Scanner as this causes issues when using System.in
 		 */
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter the input file name: ");
 		String filename = sc.next();
 		return filename;
 	}
 	
+	public void writeToFile(ArrayList<String> contents, String filename) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) { //try-with-resources will close the writer
+			for(String line : contents) {
+				writer.append(line+"\n");
+			}
+			
+		} catch (IOException ie) {
+			System.out.println("IO Error!");
+			ie.printStackTrace();
+		} catch (Exception e) {
+			System.out.println("Misc Error!");
+			e.printStackTrace();
+		}
+	}
+	
+	//GETTERS
 	public String getText() {return text;}
 	public String getKey() {return key;}
 

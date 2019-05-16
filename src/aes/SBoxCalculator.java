@@ -59,10 +59,17 @@ public class SBoxCalculator {
 	};
 	
 	public int sBox(int input) {
-		String hex = String.format("%2s", Integer.toHexString(input)).replace(' ','0');
+		String hex = String.format("%2s", Integer.toHexString(input)).replace(' ','0'); //get the integer as a 2 digit hex
 		int hex0 = Integer.parseInt(Character.toString(hex.charAt(0)),16); //get first digit of hex
 		int hex1 = Integer.parseInt(Character.toString(hex.charAt(1)),16); //second digit of hex
-		return boxTable[hex0][hex1];
+		return boxTable[hex0][hex1]; //return a substitution from table
+	}
+	
+	public int invertedSBox(int input) {
+		String hex = String.format("%2s", Integer.toHexString(input)).replace(' ','0'); //get the integer as a 2 digit hex
+		int hex0 = Integer.parseInt(Character.toString(hex.charAt(0)),16); //get first digit of hex
+		int hex1 = Integer.parseInt(Character.toString(hex.charAt(1)),16); //second digit of hex
+		return invertedBoxTable[hex0][hex1]; //return a substitution from table
 	}
 
 }
