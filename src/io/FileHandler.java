@@ -56,7 +56,8 @@ public class FileHandler {
 			}
 			//By this point the system has either set text and key to values OR exited due to error
 		}
-		System.out.println("File successfully opened and read.");
+		//System.out.println("File successfully opened and read.");
+		System.out.println();
 	}
 
 	public String inputFilename() {
