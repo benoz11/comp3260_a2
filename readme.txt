@@ -1,4 +1,4 @@
-Benjamin McDonnell - c3166457 - University of Newcastle
+Benjamin McDonnell - University of Newcastle
 COMP3260 Assignment 2 - 2019
 AES encryption, decryption, and Avalanche effect
 
